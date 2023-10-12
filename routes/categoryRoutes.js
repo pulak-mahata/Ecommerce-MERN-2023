@@ -1,5 +1,5 @@
 import express from "express";
-import { isAdmin, requireSignin } from "../middlewares/authmiddleware.js";
+import { isAdmin, requireSignin } from "../middlewares/authMiddleware.js";
 import {
   categoryController,
   createCategoryController,
