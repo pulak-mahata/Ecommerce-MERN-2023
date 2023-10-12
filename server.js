@@ -10,11 +10,15 @@ import productRoutes from "./routes/productRoutes.js";
 import path from "path";
 import cors from "cors";
 
+import {fileURLToPath} from 'url';
 //env config
 dotenv.config();
 
 //database
 connectDB();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //create server
 const app = express();
@@ -32,7 +36,7 @@ app.use("/api/v1/product", productRoutes);
 
 //api
 app.use("*", function (req, res) {
-  res.send(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 //PORT
